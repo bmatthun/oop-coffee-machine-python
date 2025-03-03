@@ -21,6 +21,8 @@ def operate():
             break
         else:
             selected_menu_item = menu.find_drink(user_input)
+            if not selected_menu_item:
+                continue
             is_paid = money_machine.make_payment(selected_menu_item.cost)
             if is_paid:
                 is_sufficient = coffee_maker.is_resource_sufficient(selected_menu_item)
